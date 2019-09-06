@@ -1,35 +1,35 @@
 <table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Details</th>
-            <th>Edit</th>
-            <th>Remove</th>
-        </tr>
-    </thead>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Details</th>
+      <th>Edit</th>
+      <th>Remove</th>
+    </tr>
+  </thead>
 
-    <tbody>
-        <tr *ngFor="let product of products">
-            <th class="align-middle">{{product.id}}</th>
-            <th class="align-middle">{{product.name}}</th>
-            <th class="align-middle">{{product.price}}</th>
-            <th class="align-middle">
-                <button class="btn btn-link" (click)="onDetail(product)">
-                    Details
-                </button>
-            </th>
-            <th class="align-middle">
-                <button class="btn btn-link" (click)="onEdit(product)">
-                    Edit
-                </button>
-            </th>
-            <th class="align-middle">
-                <button class="btn btn-link" (click)="onRemove(product)">
-                    Remove
-                </button>
-            </th>
-        </tr>
-    </tbody>
+  <tbody>
+    <tr *ngFor="let product of products">
+      <th class="align-middle">{{ product.id }}</th>
+      <th class="align-middle">{{ product.name }}</th>
+      <th class="align-middle">{{ product.price }}</th>
+      <th class="align-middle">
+        <button class="btn btn-link" (click)="onDetail(product)">
+          Details
+        </button>
+      </th>
+      <th class="align-middle">
+        <button class="btn btn-link" (click)="onEdit(product)">
+          Edit
+        </button>
+      </th>
+      <th class="align-middle">
+        <button class="btn btn-link" (click)="onRemove(product)">
+          Remove
+        </button>
+      </th>
+    </tr>
+  </tbody>
 </table>

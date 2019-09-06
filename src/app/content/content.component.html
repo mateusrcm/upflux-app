@@ -1,33 +1,72 @@
 <ng-template #content let-modal>
-    <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">{{selected.name | uppercase}}</h4>
-        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">
+      {{ selected.name | uppercase }}
+    </h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
 
-    <div *ngIf="isEditing; then thenblock else elseblock"></div>
-    <ng-template #thenblock>
-        <app-edit-modal-content [selected]="selected"></app-edit-modal-content>
-    </ng-template>
+  <div *ngIf="isEditing; then thenblock; else elseblock"></div>
+  <ng-template #thenblock>
+    <app-edit-modal-content [selected]="selected"></app-edit-modal-content>
+  </ng-template>
 
-    <ng-template #elseblock>
-        <app-details-modal-content [selected]="selected"></app-details-modal-content>
-    </ng-template>
+  <ng-template #elseblock>
+    <app-details-modal-content
+      [selected]="selected"
+    ></app-details-modal-content>
+  </ng-template>
 
-    <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="onSave(modal)">Save</button>
-    </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="onSave(modal)">
+      Save
+    </button>
+  </div>
 </ng-template>
 
-<div class="row justify-content-center">
-    <div class="col-1">
-        <button class="btn btn-primary" (click)="onNew(content)">New</button>
-    </div>
+<nav class="navbar navbar-light bg-primary">
+  <a class="navbar-brand text-light" href="#">Prova UpFlux</a>
+</nav>
 
-    <div class="col-10">
-        <app-products-list [products]="products" (edit)="onEdit($event, content)" (detail)="onDetails($event, content)"
-            (remove)="onRemove($event, content)">
+<div
+  class="d-flex justify-content-center align-items-center"
+  style="height: 90vh"
+>
+  <div class="col-10">
+    <div class="card">
+      <div
+        class="card-header d-flex justify-content-between align-items-center"
+      >
+        <div>
+          <span>Products</span>
+        </div>
+        <div>
+          <button class="btn btn-primary" (click)="onNew(content)">New</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <app-products-list
+          [products]="products"
+          (edit)="onEdit($event, content)"
+          (detail)="onDetails($event, content)"
+          (remove)="onRemove($event, content)"
+        >
         </app-products-list>
+      </div>
     </div>
+  </div>
 </div>
+
+<footer class="page-footer font-small blue">
+  <div class="footer-copyright text-center py-3">
+    © 2019 Copyright:
+    <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
+  </div>
+</footer>

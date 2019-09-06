@@ -49,7 +49,8 @@ export class ContentComponent implements OnInit {
   }
 
   onRemove($event) {
-    this.productsService.removeProduct($event.product);
+    this.productsService.removeProduct($event.product)
+      .subscribe(res => this.products = res);
     this.getProducts();
 
     this.selected = null;
@@ -61,11 +62,11 @@ export class ContentComponent implements OnInit {
     modal.close('Save click');
 
     if (this.isNew) {
-      console.log('novo');
-      this.productsService.addProduct(this.selected);
+      this.productsService.addProduct(this.selected)
+        .subscribe(res => this.products = res);
     } else {
-      console.log('update');
-      this.productsService.updateProduct(this.selected);
+      this.productsService.updateProduct(this.selected)
+        .subscribe(res => this.products = res);
     }
     this.getProducts();
 

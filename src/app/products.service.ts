@@ -19,20 +19,26 @@ export class ProductsService {
   ) { }
 
   getProducts(): Observable<any> {
-    return this.http.get('http://localhost:3000/products/getAll');
+    let res = this.http.get('http://localhost:3000/products/getAll');
+
+    return res;
   }
 
   addProduct(product: Product): Observable<any> {
-    this.http.post('http://localhost:3000/products/add', product, httpOptions);
+    let res = this.http.post('http://localhost:3000/products/add', { product }, httpOptions);
 
-    return this.getProducts();
+    return res;
   }
 
   updateProduct(product: Product): Observable<any> {
-    return this.getProducts();
+    let res = this.http.post('http://localhost:3000/products/update', { product }, httpOptions);
+
+    return res;
   }
 
   removeProduct(product: Product): Observable<any> {
-    return this.getProducts();
+    let res = this.http.post('http://localhost:3000/products/remove', { product }, httpOptions);
+
+    return res;
   }
 }
