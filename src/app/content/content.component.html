@@ -21,8 +21,12 @@
 </ng-template>
 
 <div class="row justify-content-center">
+    <div class="col-1">
+        <button class="btn btn-primary" (click)="onNew(content)">New</button>
+    </div>
+
     <div class="col-10">
-        <app-products-list (edit)="onEdit($event, content)" (detail)="onDetails($event, content)"
+        <app-products-list [products]="products" (edit)="onEdit($event, content)" (detail)="onDetails($event, content)"
             (remove)="onRemove($event, content)">
         </app-products-list>
     </div>

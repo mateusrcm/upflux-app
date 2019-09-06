@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgModule } from '@angular/core';
@@ -26,6 +27,7 @@ import { EditModalContentComponent } from './edit-modal-content/edit-modal-conte
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    HttpClientModule,
     FormsModule
   ],
   providers: [],
